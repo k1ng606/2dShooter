@@ -1,6 +1,7 @@
 extends Area2D
 
 signal bullet_hit
+signal enemy_hit_goal
 var rng = RandomNumberGenerator.new()
 
 func _ready():
@@ -19,4 +20,5 @@ func _process(delta):
 	position.x -= 100 * delta * random_speed
 	
 	if (position.x < -50):
+		enemy_hit_goal.emit()
 		queue_free()

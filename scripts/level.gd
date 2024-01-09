@@ -7,6 +7,7 @@ var player: PackedScene = preload("res://scenes/player.tscn")
 @export var fpsLabel: Label
 @export var scoreLabel: Label
 @export var timerLabel: Label
+@export var enemyWinLabel: Label
 
 @export var gameTimer: Timer
 @export var enemySpawnTimer: Timer
@@ -16,19 +17,25 @@ var canShoot = true
 
 var score: int = 0
 var gameTime: int = 0
+var enemyHitGoal: int = 0
 
 var rng = RandomNumberGenerator.new()
 
 func _process(_delta):
 	fpsLabel.text = "FPS: " + str(Engine.get_frames_per_second())
-
-func _ready():
+	
+func setup():
 	scoreLabel.text = "Score: " + str(score)
 	timerLabel.text = "Timer: " + str(gameTime)
+	enemyWinLabel.text = "Enemy Win Counter: " + str(enemyHitGoal)
 	spawn_player_and_setup_player_signals()
 	enemySpawnTimer.timeout.connect(spawn_enemy)
 	gameTimer.timeout.connect(on_game_timer_timeout)
 	shootTimer.timeout.connect(on_shoot_timeout)
+	
+
+func _ready():
+	setup()
 	
 func on_shoot_timeout():
 	canShoot = true
@@ -44,7 +51,16 @@ func spawn_enemy():
 	enemyInstance.position.y = random_y
 	add_child(enemyInstance)
 	enemyInstance.bullet_hit.connect(on_bullet_hit)
+	enemyInstance.enemy_hit_goal.connect(on_enemy_hit_goal)
 	return enemyInstance
+	
+func on_enemy_hit_goal():
+	enemyHitGoal = enemyHitGoal + 1
+	enemyWinLabel.text = "Enemy Win Counter: " + str(enemyHitGoal)
+	if (enemyHitGoal == 5):
+		Global.gameTime = gameTime
+		Global.score = score
+		get_tree().change_scene_to_file("res://scenes/kill_screen.tscn")
 	
 func on_bullet_hit():
 	score = score + 1

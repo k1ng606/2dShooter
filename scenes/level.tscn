@@ -38,11 +38,17 @@ layout_mode = 2
 text = "timerLabel"
 horizontal_alignment = 2
 
-[node name="level" type="Node2D" parent="." node_paths=PackedStringArray("fpsLabel", "scoreLabel", "timerLabel", "gameTimer", "enemySpawnTimer", "shootTimer")]
+[node name="enemyWinLabel" type="Label" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "enemyWinLabel"
+horizontal_alignment = 2
+
+[node name="level" type="Node2D" parent="." node_paths=PackedStringArray("fpsLabel", "scoreLabel", "timerLabel", "enemyWinLabel", "gameTimer", "enemySpawnTimer", "shootTimer")]
 script = ExtResource("1_owqvk")
 fpsLabel = NodePath("../Control/VBoxContainer/fpsLabel")
 scoreLabel = NodePath("../Control/VBoxContainer/scoreLabel")
 timerLabel = NodePath("../Control/VBoxContainer/timerLabel")
+enemyWinLabel = NodePath("../Control/VBoxContainer/enemyWinLabel")
 gameTimer = NodePath("gameTimer")
 enemySpawnTimer = NodePath("enemySpawnTimer")
 shootTimer = NodePath("shootTimer")
