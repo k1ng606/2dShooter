@@ -23,8 +23,20 @@ var rng = RandomNumberGenerator.new()
 
 func _process(_delta):
 	fpsLabel.text = "FPS: " + str(Engine.get_frames_per_second())
+	if (gameTime == 30):
+		Global.difficulty = 10
+		
+	if (gameTime == 60):
+		Global.difficulty = 13
+		enemySpawnTimer.wait_time = float(2.5)
+		
+	if (gameTime == 90):
+		Global.difficulty = 20
 	
 func setup():
+	
+	#Engine.max_fps = 60
+	
 	scoreLabel.text = "Score: " + str(score)
 	timerLabel.text = "Timer: " + str(gameTime)
 	enemyWinLabel.text = "Enemy Win Counter: " + str(enemyHitGoal)

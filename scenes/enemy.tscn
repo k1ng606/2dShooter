@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_tgxml"]
 radius = 74.0068
 
-[node name="enemy" type="Area2D"]
+[node name="enemy" type="Area2D" groups=["enemy"]]
 script = ExtResource("1_ialr2")
 metadata/_edit_group_ = true
 
