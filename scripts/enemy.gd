@@ -2,11 +2,16 @@ extends Area2D
 
 signal bullet_hit
 signal enemy_hit_goal
+signal player_hit
 var rng = RandomNumberGenerator.new()
 
 func _ready():
 	connect("area_entered", on_area_entered)
+	connect("body_entered", on_body_entered)
 
+
+func on_body_entered(_body):
+	player_hit.emit()
 
 func on_area_entered(area):
 	bullet_hit.emit()

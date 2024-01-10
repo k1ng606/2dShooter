@@ -52,8 +52,19 @@ func spawn_enemy():
 	add_child(enemyInstance)
 	enemyInstance.bullet_hit.connect(on_bullet_hit)
 	enemyInstance.enemy_hit_goal.connect(on_enemy_hit_goal)
+	enemyInstance.player_hit.connect(on_player_hit)
 	return enemyInstance
 	
+func on_player_hit():
+	call_deferred("set_score_and_show_killscreen")
+	
+
+func set_score_and_show_killscreen():
+	Global.gameTime = gameTime
+	Global.score = score
+	get_tree().change_scene_to_file("res://scenes/kill_screen.tscn")
+	
+
 func on_enemy_hit_goal():
 	enemyHitGoal = enemyHitGoal + 1
 	enemyWinLabel.text = "Enemy Win Counter: " + str(enemyHitGoal)
