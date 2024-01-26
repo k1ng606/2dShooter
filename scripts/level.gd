@@ -74,6 +74,7 @@ func on_player_hit():
 func set_score_and_show_killscreen():
 	Global.gameTime = gameTime
 	Global.score = score
+	Global.difficulty = 5
 	get_tree().change_scene_to_file("res://scenes/kill_screen.tscn")
 	
 
@@ -81,9 +82,7 @@ func on_enemy_hit_goal():
 	enemyHitGoal = enemyHitGoal + 1
 	enemyWinLabel.text = "Enemy Win Counter: " + str(enemyHitGoal)
 	if (enemyHitGoal == 5):
-		Global.gameTime = gameTime
-		Global.score = score
-		get_tree().change_scene_to_file("res://scenes/kill_screen.tscn")
+		call_deferred("set_score_and_show_killscreen")
 	
 func on_bullet_hit():
 	score = score + 1
