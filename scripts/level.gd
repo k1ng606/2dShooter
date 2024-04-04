@@ -4,6 +4,8 @@ var bullet: PackedScene = preload("res://scenes/bullet.tscn")
 var enemy: PackedScene = preload("res://scenes/enemy.tscn")
 var player: PackedScene = preload("res://scenes/player.tscn")
 
+@export var startDifficulty:int = 5
+
 @export var fpsLabel: Label
 @export var scoreLabel: Label
 @export var timerLabel: Label
@@ -18,25 +20,23 @@ var canShoot = true
 var score: int = 0
 var gameTime: int = 0
 var enemyHitGoal: int = 0
+var diffultyScaleTime:= 0
 
 var rng = RandomNumberGenerator.new()
 
+func scale_difficulty():
+	if (diffultyScaleTime == 45):
+		Global.difficulty = startDifficulty
+		diffultyScaleTime = 0
+		startDifficulty += 3
+
 func _process(_delta):
 	fpsLabel.text = "FPS: " + str(Engine.get_frames_per_second())
-	if (gameTime == 30):
-		Global.difficulty = 10
-		
-	if (gameTime == 60):
-		Global.difficulty = 13
-		enemySpawnTimer.wait_time = float(2.5)
-		
-	if (gameTime == 90):
-		Global.difficulty = 20
+	
+	scale_difficulty()
+	
 	
 func setup():
-	
-	#Engine.max_fps = 60
-	
 	scoreLabel.text = "Score: " + str(score)
 	timerLabel.text = "Timer: " + str(gameTime)
 	enemyWinLabel.text = "Enemy Win Counter: " + str(enemyHitGoal)
@@ -53,7 +53,8 @@ func on_shoot_timeout():
 	canShoot = true
 
 func on_game_timer_timeout():
-	gameTime = gameTime + 1
+	gameTime += 1
+	diffultyScaleTime += 1
 	timerLabel.text = "Timer: " + str(gameTime)
 	
 func spawn_enemy():
