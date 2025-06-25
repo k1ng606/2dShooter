@@ -1,8 +1,8 @@
 extends Node2D
 
-var bullet: PackedScene = preload("res://scenes/bullet.tscn")
-var enemy: PackedScene = preload("res://scenes/enemy.tscn")
-var player: PackedScene = preload("res://scenes/player.tscn")
+var bullet: PackedScene = preload("res://scenes/bullet/bullet.tscn")
+var enemy: PackedScene = preload("res://scenes/enemy/enemy.tscn")
+var player: PackedScene = preload("res://scenes/player/player.tscn")
 
 @export var startDifficulty:int = 5
 

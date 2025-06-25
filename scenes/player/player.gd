@@ -4,10 +4,6 @@ extends CharacterBody2D
 
 signal player_fired
 
-func _ready():
-	pass
-
-
 func get_input():
 	if Input.is_action_just_pressed("shoot"):
 		player_fired.emit()

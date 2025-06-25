@@ -1,17 +1,16 @@
 [gd_scene load_steps=4 format=3 uid="uid://phb6hfe4qdsr"]
 
-[ext_resource type="Script" uid="uid://yo0aa508cnhc" path="res://scripts/enemy.gd" id="1_ialr2"]
-[ext_resource type="Texture2D" uid="uid://n05x8qq1vxsr" path="res://assets/icon.svg" id="2_dyo1f"]
+[ext_resource type="Script" uid="uid://yo0aa508cnhc" path="res://scenes/enemy/enemy.gd" id="1_a3pup"]
+[ext_resource type="Texture2D" uid="uid://c8t6hgjnlxbec" path="res://scenes/enemy/astroid.png" id="2_40wdo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tgxml"]
-radius = 74.0068
+radius = 20.0
 
 [node name="enemy" type="Area2D" groups=["enemy"]]
-script = ExtResource("1_ialr2")
-metadata/_edit_group_ = true
+script = ExtResource("1_a3pup")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_dyo1f")
+texture = ExtResource("2_40wdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tgxml")

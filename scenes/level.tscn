@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ba70xiy7usvfc"]
+[gd_scene load_steps=2 format=3 uid="uid://ba70xiy7usvfc"]
 
 [ext_resource type="Script" uid="uid://cp5d3w6hfe6qn" path="res://scripts/level.gd" id="1_owqvk"]
-[ext_resource type="PackedScene" uid="uid://dgmt7pr5hjcj4" path="res://scenes/explosion/Explosion.tscn" id="2_w7c3h"]
 
 [node name="Node" type="Node"]
 
@@ -64,6 +63,3 @@ autostart = true
 [node name="shootTimer" type="Timer" parent="level"]
 wait_time = 2.0
 autostart = true
-
-[node name="Explosion" parent="." instance=ExtResource("2_w7c3h")]
-position = Vector2(286, 144)
