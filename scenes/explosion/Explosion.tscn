@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://dgmt7pr5hjcj4"]
+
+[ext_resource type="Texture2D" uid="uid://bg4bccufeebwk" path="res://scenes/explosion/assets/Explosion.png" id="1_ixxoq"]
+[ext_resource type="Script" uid="uid://cqxpddke8ymxw" path="res://scenes/explosion/Explosion.cs" id="2_ye4m6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qk5n1"]
+atlas = ExtResource("1_ixxoq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wxp7f"]
+atlas = ExtResource("1_ixxoq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnlmd"]
+atlas = ExtResource("1_ixxoq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmv2m"]
+atlas = ExtResource("1_ixxoq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufk1j"]
+atlas = ExtResource("1_ixxoq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3cil"]
+atlas = ExtResource("1_ixxoq")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uarwa"]
+atlas = ExtResource("1_ixxoq")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qu34"]
+atlas = ExtResource("1_ixxoq")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ds3cg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qk5n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wxp7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnlmd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmv2m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufk1j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3cil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uarwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qu34")
+}],
+"loop": false,
+"name": &"explosion_1",
+"speed": 11.0
+}]
+
+[node name="Explosion" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_ds3cg")
+animation = &"explosion_1"
+autoplay = "explosion_1"
+frame_progress = 0.515933
+script = ExtResource("2_ye4m6")

@@ -1,21 +1,47 @@
-[gd_scene load_steps=4 format=3 uid="uid://cofopn5uafdtv"]
+[gd_scene load_steps=7 format=3 uid="uid://cofopn5uafdtv"]
 
 [ext_resource type="Script" uid="uid://c7e4gvgs0dafb" path="res://scripts/player.gd" id="1_aqpk5"]
-[ext_resource type="Texture2D" uid="uid://n05x8qq1vxsr" path="res://assets/icon.svg" id="2_anoae"]
+[ext_resource type="Texture2D" uid="uid://5e6mgrulbcn3" path="res://scenes/player/assets/spaceship_with_thruster_animated.png" id="2_g2els"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
+atlas = ExtResource("2_g2els")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqkch"]
+atlas = ExtResource("2_g2els")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlg0r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qhqgy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqkch")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 11.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6kjeo"]
-radius = 32.0624
+radius = 13.0
 
 [node name="player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_aqpk5")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_anoae")
+[node name="bulletSpawnMarker" type="Marker2D" parent="."]
+position = Vector2(10, 0)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-13, 0)
+sprite_frames = SubResource("SpriteFrames_qlg0r")
+animation = &"fly"
+autoplay = "fly"
+frame = 1
+frame_progress = 0.907618
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6kjeo")
-
-[node name="bulletSpawnMarker" type="Marker2D" parent="."]
-position = Vector2(47, -3)
