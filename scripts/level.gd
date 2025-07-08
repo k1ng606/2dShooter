@@ -92,7 +92,7 @@ func on_bullet_hit():
 func spawn_player_and_setup_player_signals():
 	var playerInstance = player.instantiate()
 	add_child(playerInstance)
-	playerInstance.position.x = 50
+	playerInstance.position.x = 75
 	playerInstance.position.y = get_viewport().size.y / 2
 	playerInstance.player_fired.connect(on_player_fired)
 	return playerInstance

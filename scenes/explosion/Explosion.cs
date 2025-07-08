@@ -10,7 +10,6 @@ public partial class Explosion : AnimatedSprite2D
 
 	private void OnAnimationFinished()
     {
-        GD.Print("Animation finished playing!");
         QueueFree(); 
     }
 }

@@ -68,6 +68,7 @@ animations = [{
 }]
 
 [node name="Explosion" type="AnimatedSprite2D"]
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_ds3cg")
 animation = &"explosion_1"
 autoplay = "explosion_1"

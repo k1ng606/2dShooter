@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cofopn5uafdtv"]
 
-[ext_resource type="Script" uid="uid://c7e4gvgs0dafb" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://bk14tehg5rpfe" path="res://scenes/player/Player.cs" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://5e6mgrulbcn3" path="res://scenes/player/assets/spaceship_with_thruster_animated.png" id="2_gmlin"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qhqgy"]
@@ -37,6 +37,7 @@ position = Vector2(10, 0)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-13, 0)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qlg0r")
 animation = &"fly"
 autoplay = "fly"
@@ -44,4 +45,5 @@ frame = 1
 frame_progress = 0.907618
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_6kjeo")

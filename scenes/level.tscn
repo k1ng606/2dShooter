@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://ba70xiy7usvfc"]
+[gd_scene load_steps=5 format=3 uid="uid://ba70xiy7usvfc"]
 
-[ext_resource type="Script" uid="uid://cp5d3w6hfe6qn" path="res://scripts/level.gd" id="1_owqvk"]
+[ext_resource type="Script" uid="uid://ymbenlaeasqq" path="res://scripts/Level.cs" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://bqonb5nwickkp" path="res://scenes/bullet/bullet.tscn" id="2_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://phb6hfe4qdsr" path="res://scenes/enemy/enemy.tscn" id="3_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://cofopn5uafdtv" path="res://scenes/player/player.tscn" id="4_2r41h"]
 
 [node name="Node" type="Node"]
 
@@ -43,15 +46,18 @@ layout_mode = 2
 text = "enemyWinLabel"
 horizontal_alignment = 2
 
-[node name="level" type="Node2D" parent="." node_paths=PackedStringArray("fpsLabel", "scoreLabel", "timerLabel", "enemyWinLabel", "gameTimer", "enemySpawnTimer", "shootTimer")]
-script = ExtResource("1_owqvk")
-fpsLabel = NodePath("../Control/VBoxContainer/fpsLabel")
-scoreLabel = NodePath("../Control/VBoxContainer/scoreLabel")
-timerLabel = NodePath("../Control/VBoxContainer/timerLabel")
-enemyWinLabel = NodePath("../Control/VBoxContainer/enemyWinLabel")
-gameTimer = NodePath("gameTimer")
-enemySpawnTimer = NodePath("enemySpawnTimer")
-shootTimer = NodePath("shootTimer")
+[node name="level" type="Node2D" parent="." node_paths=PackedStringArray("FpsLabel", "ScoreLabel", "TimerLabel", "EnemyWinLabel", "GameTimer", "EnemySpawnTimer", "ShootTimer")]
+script = ExtResource("1_2q6dc")
+Bullet = ExtResource("2_mx8sn")
+Enemy = ExtResource("3_ppgk2")
+Player = ExtResource("4_2r41h")
+FpsLabel = NodePath("../Control/VBoxContainer/fpsLabel")
+ScoreLabel = NodePath("../Control/VBoxContainer/scoreLabel")
+TimerLabel = NodePath("../Control/VBoxContainer/timerLabel")
+EnemyWinLabel = NodePath("../Control/VBoxContainer/enemyWinLabel")
+GameTimer = NodePath("gameTimer")
+EnemySpawnTimer = NodePath("enemySpawnTimer")
+ShootTimer = NodePath("shootTimer")
 
 [node name="enemySpawnTimer" type="Timer" parent="level"]
 wait_time = 3.0
